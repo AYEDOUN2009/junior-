@@ -1,0 +1,319 @@
+:root{
+  --primary:#6d28d9;
+  --primary2:#4f46e5;
+  --bg:#0b1020;
+  --card: rgba(255,255,255,.08);
+  --card2: rgba(255,255,255,.12);
+  --text:#e5e7eb;
+  --muted: rgba(229,231,235,.75);
+  --line: rgba(255,255,255,.12);
+  --white:#fff;
+  --shadow: 0 18px 45px rgba(0,0,0,.35);
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(900px 500px at 15% 10%, rgba(109,40,217,.35), transparent 60%),
+    radial-gradient(900px 500px at 80% 15%, rgba(79,70,229,.30), transparent 55%),
+    linear-gradient(180deg, #070a14 0%, #0b1020 100%);
+  color:var(--text);
+}
+
+/* layout */
+.container{
+  width:min(1100px, 92%);
+  margin:0 auto;
+}
+
+.section{
+  padding:70px 0;
+  border-top:1px solid var(--line);
+}
+
+h1,h2,h3{ line-height:1.15; }
+h2{
+  font-size: clamp(22px, 2.2vw, 34px);
+  margin:0 0 14px;
+  letter-spacing:.3px;
+}
+p{ color:var(--muted); font-size:16px; line-height:1.6; }
+
+/* Header / hero */
+.header{
+  padding:48px 0 20px;
+}
+
+.header .container{
+  display:flex;
+  gap:28px;
+  align-items:flex-start;
+}
+
+.cta{
+  flex:1;
+  min-width:280px;
+}
+
+.cta h1{
+  margin:0 0 14px;
+  font-size: clamp(28px, 3.4vw, 52px);
+  letter-spacing: .6px;
+  color:var(--white);
+  text-shadow: 0 10px 30px rgba(109,40,217,.25);
+}
+
+.cta p{
+  margin:18px 0 0;
+  font-size:18px;
+}
+
+.nav{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:18px 0 10px;
+}
+
+/* buttons */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 14px;
+  border-radius:12px;
+  text-decoration:none;
+  color:var(--white);
+  font-weight:700;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+.btn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.14);
+  border-color: rgba(255,255,255,.18);
+}
+.btn-primary{
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary2) 100%);
+  border-color: rgba(255,255,255,.18);
+  box-shadow: 0 14px 35px rgba(109,40,217,.25);
+}
+
+/* Hero images collage */
+.images{
+  position:relative;
+  width:min(480px, 44vw);
+  min-width:280px;
+  height:360px;
+  border-radius:22px;
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+
+.images::before{
+  content:"";
+  position:absolute;
+  inset:-80px;
+  background:
+    radial-gradient(closest-side, rgba(109,40,217,.35), transparent 60%),
+    radial-gradient(closest-side, rgba(79,70,229,.30), transparent 60%);
+  filter: blur(20px);
+  opacity:.9;
+}
+
+.images img{
+  position:absolute;
+  width:150px;
+  height:105px;
+  object-fit:cover;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.2);
+  box-shadow: 0 16px 40px rgba(0,0,0,.35);
+}
+
+/* positions (ajuste facilement si besoin) */
+.display{ left:18px; top:28px; transform: rotate(-8deg); }
+.iml{ right:20px; top:55px; transform: rotate(7deg); width:160px; height:110px; }
+.mo{ left:70px; top:170px; transform: rotate(10deg); width:160px; height:115px; }
+.la{ right:55px; bottom:40px; transform: rotate(-7deg); width:190px; height:125px; }
+.lo{ left:10px; bottom:26px; transform: rotate(-2deg); width:135px; height:95px; }
+
+.actions{
+  margin-top:20px;
+}
+
+/* Cards */
+.cards{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap:16px;
+  margin-top:20px;
+}
+
+.card{
+  padding:18px;
+  border-radius:18px;
+  background: linear-gradient(180deg, var(--card), rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow: 0 12px 30px rgba(0,0,0,.22);
+}
+
+.card h3{
+  margin:0 0 8px;
+  font-size:18px;
+  color:var(--white);
+}
+.card p{ margin:0; }
+
+/* Contact form */
+.contact-form{
+  display:grid;
+  gap:12px;
+  max-width:540px;
+}
+
+label{
+  display:grid;
+  gap:7px;
+}
+
+input, textarea{
+  width:100%;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color:var(--text);
+  outline:none;
+}
+
+input::placeholder, textarea::placeholder{ color: rgba(229,231,235,.55); }
+
+input:focus, textarea:focus{
+  border-color: rgba(109,40,217,.55);
+  box-shadow: 0 0 0 4px rgba(109,40,217,.18);
+}
+
+.footer{
+  padding:25px 0 40px;
+  border-top:1px solid var(--line);
+  text-align:center;
+  color:rgba(229,231,235,.7);
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .header .container{ flex-direction:column; }
+  .images{ width:100%; height:340px; }
+  .cards{ grid-template-columns: 1fr; }
+  .images img{ width:150px; height:105px; }
+}
+/* CONTENEUR (optionnel mais recommandé si tu as .images) */
+.images{
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  padding: 18px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+/* Base pour toutes tes images du collage */
+.images img{
+  position: absolute;
+  object-fit: cover;
+
+  /* look */
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.38),
+    inset 0 1px 0 rgba(255,255,255,.22);
+
+  /* effets */
+  filter: saturate(1.08) contrast(1.03);
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+  transform-origin: center;
+}
+
+/* Hover: zoom + légère rotation (effet waouh) */
+.images img:hover{
+  transform: translateY(-4px) rotate(var(--r, 0deg)) scale(1.06);
+  filter: saturate(1.18) contrast(1.08);
+  box-shadow:
+    0 26px 70px rgba(0,0,0,.50),
+    inset 0 1px 0 rgba(255,255,255,.25);
+}
+
+/* Placement + taille (ajuste selon ton rendu) */
+.display{ 
+  left: 18px; top: 28px; 
+  width: 160px; height: 110px;
+  --r: -8deg;
+  transform: rotate(-8deg);
+}
+
+.iml{ 
+  right: 18px; top: 55px; 
+  width: 170px; height: 120px;
+  --r: 7deg;
+  transform: rotate(7deg);
+}
+
+.mo{ 
+  left: 70px; top: 168px; 
+  width: 170px; height: 120px;
+  --r: 10deg;
+  transform: rotate(10deg);
+}
+
+.la{ 
+  right: 45px; bottom: 40px; 
+  width: 205px; height: 140px;
+  --r: -7deg;
+  transform: rotate(-7deg);
+}
+
+.lo{ 
+  left: 8px; bottom: 28px; 
+  width: 140px; height: 98px;
+  --r: -2deg;
+  transform: rotate(-2deg);
+}
+
+/* Petit “shine” sur images (optionnel mais joli) */
+.images img::after{
+  content: "";
+  position: absolute; /* ⚠️ si besoin, il faut pseudo-élément sur un élément positionné */
+}
+
+/* Mobile: images deviennent moins “collage” */
+@media (max-width: 900px){
+  .images img{
+    position: relative;
+    left: auto; right: auto; top: auto; bottom: auto;
+    width: 100%;
+    height: 120px;
+    margin: 10px 0;
+    transform: rotate(0deg);
+    --r: 0deg;
+  }
+  .images{
+    padding: 10px;
+    height: auto;
+  }
+}
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap:16px;
+      align-items:stretch;
+    }
